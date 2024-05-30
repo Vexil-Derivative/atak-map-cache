@@ -1,0 +1,5 @@
+.DS-Store
+__pycache__
+.envrc
+venv/
+cache/temp
