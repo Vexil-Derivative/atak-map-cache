@@ -12,16 +12,16 @@ Many of the most popular paid mapping apps use freely available GIS data for the
 
 ## Roadmap
 
-[*] Sorting by state and/or layer
-[*] Add multiple links to a single KMZ file
-[*] Vector KMZ export support
-[] Raster KMZ export support
-[] geoJSON export support
-[] Feature server + Image server link downloads
-[] Set update frequency per-datasource
-[] Add custom styling adjustments per source
-[] "Network link" mode for critical applications
-
+- [x] Sorting by state and/or layer
+- [x] Add multiple links to a single KMZ file
+- [x] Vector KMZ export support
+- [] Raster KMZ export support
+- [] geoJSON export support
+- [] Feature server + Image server link downloads
+- [] Set update frequency per-datasource
+- [] Add custom styling adjustments per source
+- [] "Network link" mode for critical applications
+- 
 ## Use
 
 The `links.json` file contains all of the data sources that will be converted by the script. They are organized into `files`, `links`, and `layers`. Each `file` entry represents a single KMZ file in the export, which contains folders for each `link`. Each `link` can contain multiple `layers`, which will each get their own subfolder if `sort_by_layer` is set to true. The `sort_by_state` option will further divide the data into individual US States, helpful for datasets with large numbers of objects.
