@@ -21,7 +21,7 @@ Many of the most popular paid mapping apps use freely available GIS data for the
 - [ ] Set update frequency per-datasource
 - [ ] Add custom styling adjustments per source
 - [ ] "Network link" mode for critical applications
-- 
+ 
 ## Use
 
 The `links.json` file contains all of the data sources that will be converted by the script. They are organized into `files`, `links`, and `layers`. Each `file` entry represents a single KMZ file in the export, which contains folders for each `link`. Each `link` can contain multiple `layers`, which will each get their own subfolder if `sort_by_layer` is set to true. The `sort_by_state` option will further divide the data into individual US States, helpful for datasets with large numbers of objects.
