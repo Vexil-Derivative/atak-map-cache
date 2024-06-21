@@ -15,12 +15,12 @@ Many of the most popular paid mapping apps use freely available GIS data for the
 - [x] Sorting by state and/or layer
 - [x] Add multiple links to a single KMZ file
 - [x] Vector KMZ export support
-- [] Raster KMZ export support
-- [] geoJSON export support
-- [] Feature server + Image server link downloads
-- [] Set update frequency per-datasource
-- [] Add custom styling adjustments per source
-- [] "Network link" mode for critical applications
+- [ ] Raster KMZ export support
+- [ ] geoJSON export support
+- [ ] Feature server + Image server link downloads
+- [ ] Set update frequency per-datasource
+- [ ] Add custom styling adjustments per source
+- [ ] "Network link" mode for critical applications
 - 
 ## Use
 
