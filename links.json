@@ -2,8 +2,10 @@
   "files": [
     {
       "name": "Weather & Conditions",
+      "description": "Weather, etc.",
       "links": [
         {
+          // Finished
           "link": "https://mapservices.weather.noaa.gov/vector/rest/services/precip/wpc_qpf/MapServer",
           "layers": [ 1,2,3,4,5 ],
           "layer_names": {
@@ -14,29 +16,118 @@
             "5": "Day 6-7"
           },
           "name": "Predicted Rainfall",
+          "description": "Rain, etc.",
           "sort_by_state": false,
           "sort_by_layer": true,
-          "enabled": false
+          "type": "vector",
+          "enabled": true
         },
         {
-          "link": "Watches and Warnings",
+          // Finished
+          "link": "https://mapservices.weather.noaa.gov/eventdriven/rest/services/WWA/watch_warn_adv/MapServer",
           "layers": [ 0,1 ],
           "name": "Watches & Warnings",
+          "description": "Watches, warnings, etc.",
           "layer_names": {
             "0": "Severe Warnings",
             "1": "All Watches & Warnings"
           },
           "sort_by_state": false,
           "sort_by_layer": true,
+          "type": "vector",
           "enabled": true
         },
         {
+          //Raster, unsure on completion
           "link": "https://mapservices.weather.noaa.gov/raster/rest/services/snow/NOHRSC_Snow_Analysis/MapServer",
           "layers": [ 3 ],
+          "layer_names": {"3": "Snow Depth"},
           "name": "Snow Depth",
+          "description": "Snow, etc.",
           "sort_by_state": false,
           "sort_by_layer": true,
+          "raster": true,
+          "type": "raster",
           "enabled": true
+        },
+        {
+          "link": "https://mapservice.nohrsc.noaa.gov/arcgis/rest/services/national_water_model/NWM_Stream_Analysis/MapServer",
+          //"layers": [ 1,2,3,4,5,6,8,9,10,11,12,13 ],
+          // Smaller sizes seem to include the larger streams as well.
+          // Local also doesn't seem to contain anything useful
+          "layers": [ 2 ],
+          "layer_names": {"1": "Very Large Streams",
+                          "2": "Large Streams",
+                          "3": "Medium Streams",
+                          "4": "Small Streams",
+                          "5": "All Streams",
+                          "6": "All Streams - higher zoom",
+                          "8": "Very Large Streams (Local)",
+                          "9": "Large Streams (Local)",
+                          "10": "Medium Streams (Local)",
+                          "11": "Small Streams (Local)",
+                          "12": "All Streams (Local)",
+                          "13": "All Streams - higher zoom (Local)"},
+          "name": "Stream Analysis",
+          "description": "NOAA NWM Stream Analysis",
+          "sort_by_state": false,
+          "sort_by_layer": true,
+          "raster": false,
+          "type": "vector",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "name": "Recreation",
+      "description": "POIs",
+      "links": [
+        {
+          "link": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer",
+          "layers": [ 0 ],
+          "layer_names": {
+            "0": "USFS Recreation Opportunities"
+          },
+          "name": "USFS Recreation Opportunities",
+          "description": "Desc.",
+          "sort_by_state": true,
+          "sort_by_layer": false,
+          "type": "vector",
+          "enabled": true
+        }
+       
+      ]
+    },
+    {
+    "name": "Land Use & Boundaries",
+      "description": "Borders, Parcels, and Areas",
+      "links": [
+        {
+          "link": "https://services2.arcgis.com/C8EMgrsFcRFL6LrL/ArcGIS/rest/services/All_USCounties/FeatureServer",
+          "layers": [ 0 ],
+          "layer_names": {
+            "0" : "US Counties"
+          },
+          "name": "US Counties",
+          "description": "County lines for all of the US",
+          "sort_by_state": true,
+          "sort_by_layer": false,
+          "enabled": true,
+          "type": "geoJSON"
+        },
+       
+        {
+          "link": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_BasicOwnership_02/MapServer",
+          "layers": [ 0 ],
+          "layer_names": {
+            "0" : "National Forest Boundaries"
+          },
+          "name": "National Forest Boundaries",
+          "description": "USFS owned lands",
+          "sort_by_state": true,
+          "sort_by_layer": false,
+          "enabled": true,
+          "type": "kmz"
         }
       ]
     }
