@@ -27,15 +27,19 @@ def progress_bar(msg, current, total):
 
 def dl_with_retry(url, max_tries=3):
     success = False
-    tries = 0
+    tries = 1
     # TODO: Create get_with_retry method in utils
     while not success:
         r = requests.get(url, verify=False)
-        if (r.status_code == 200 or tries == 2):
+        if (r.status_code == 200):
             success = True
             return r.content
+        elif tries == max_tries:
+            print("File could not be downloaded after {max_tries} attempts")
+            raise RuntimeError
         else:
             tries = tries + 1
+    return r.content
 
 
 class JSONWithCommentsDecoder(json.JSONDecoder):

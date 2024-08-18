@@ -1,7 +1,284 @@
 {
   "files": [
-    {
-      "name": "Weather & Conditions",
+    { "name": "General POIs",
+    "description": "Hospitals, Police, Gas, etc.",
+    "links": [
+      {
+        // Untested
+        "link": "https://carto.nationalmap.gov/arcgis/rest/services/structures/MapServer",
+        "layers": [ 14, 16, 18, 25, 26, 27, 28, 29, 30, 31, 32,
+                    49, 51, 53, 60, 61, 62, 63, 64, 65, 66, 67 ],
+        "layer_names": {
+          "14": "LBL - Hospitals",
+          "16": "LBL - Fire/EMS Stations",
+          "18": "LBL - Police Stations",
+          "25": "LBL - Campgrounds",
+          "26": "LBL - Trailheads",
+          "27": "LBL - Cabins",
+          "28": "LBL - Shelters",
+          "29": "LBL - Picnic Areas",
+          "30": "LBL - Headquarters",
+          "31": "LBL - Visitor/Info Centers",
+          "32": "LBL - Ranger Stations",
+          "49": "Hospitals",
+          "51": "Fire/EMS Stations",
+          "53": "Police Stations",
+          "60": "Campgrounds",
+          "61": "Trailheads",
+          "62": "Cabins",
+          "63": "Shelters",
+          "64": "Picnic Areas",
+          "65": "Headquarters",
+          "66": "Visitor/Info Centers",
+          "67": "Ranger Stations"
+        },
+        "name": "USGS Structures",
+        "description": "The National Map",
+        "sort_by_state": true,
+        "sort_by_layer": true,
+        "enabled": false,
+        // Link says it supports KMZ, but no objects are returned
+        "type": "geoJSON" }]
+    },
+    { "name": "Land Use & Boundaries",
+    "description": "Borders, Parcels, and Areas",
+    "links": [
+      {
+        "link": "https://services2.arcgis.com/C8EMgrsFcRFL6LrL/ArcGIS/rest/services/All_USCounties/FeatureServer",
+        "layers": [ 0 ],
+        "layer_names": {
+          "0" : "US Counties"
+        },
+        "name": "US Counties",
+        "description": "County lines for all of the US",
+        "sort_by_state": true,
+        "sort_by_layer": false,
+        "enabled": false,
+        "type": "geoJSON"
+      },
+     
+      {
+        "link": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_BasicOwnership_02/MapServer",
+        "layers": [ 0 ],
+        "layer_names": {
+          "0" : "National Forest Boundaries"
+        },
+        "name": "National Forest Boundaries",
+        "description": "USFS owned lands",
+        "sort_by_state": true,
+        "sort_by_layer": false,
+        "enabled": false,
+        "type": "kmz"
+      },
+      {
+        // Untested
+        "link": "https://gis.blm.gov/arcgis/rest/services/lands/BLM_Natl_SMA_Cached_BLM_Only/MapServer",
+        "layers": [ 2 ],
+        "layer_names": {
+          "2" : "BLM Boundaries"
+        },
+        "name": "BLM Boundaries",
+        "description": "USFS owned lands",
+        "sort_by_state": false,
+        "sort_by_layer": true,
+        "enabled": false,
+        "type": "kmz"
+      }
+      
+    ]
+    },
+    { "name": "Recreation",
+    "description": "POIs",
+    "links": [
+      {
+        "link": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer",
+        "layers": [ 0 ],
+        "layer_names": {
+          "0": "USFS Recreation Opportunities"
+        },
+        "name": "USFS Recreation Opportunities",
+        "description": "Desc.",
+        "sort_by_state": true,
+        "sort_by_layer": false,
+        "type": "vector",
+        "enabled": false
+      },
+      {
+        // Untested
+        "link": "https://partnerships.nationalmap.gov/arcgis/rest/services/USGSTrails/MapServer",
+        "layers": [ 0 ],
+        "layer_names": {
+          "0": "USGS Trails"
+        },
+        "name": "USGS Trails",
+        "description": "Desc.",
+        "sort_by_state": true,
+        "sort_by_layer": false,
+        "type": "vector",
+        "enabled": false
+      },
+      {
+        // Untested
+        "link": "https://gis.blm.gov/orarcgis/rest/services/Facility/BLM_OR_Recreation_Site/MapServer",
+        "layers": [ 0, 1, 2, 3, 4 ],
+        "layer_names": {
+          "0": "Major/Developed Rec Area",
+          "1": "Minor/Undeveloped Rec Area",
+          "2": "Major/Developed Rec Points",
+          "3": "Minor/Undeveloped Rec Points",
+          "4": "Rec Area Boundary"
+        },
+        "name": "BLM Rec Opportunities OR-WA",
+        "description": "Desc.",
+        "sort_by_state": false,
+        "sort_by_layer": true,
+        "type": "vector",
+        "enabled": false
+      },
+      {
+        // Untested
+        "link": "https://gis.blm.gov/azarcgis/rest/services/recreation/BLM_AZ_RECS/MapServer",
+        "layers": [ 0, 1 ],
+        "layer_names": {
+          "0": "BLM AZ Rec Points",
+          "1": "BLM AZ Rec Polygons"
+        },
+        "name": "BLM Rec Opportunities AZ",
+        "description": "Desc.",
+        "sort_by_state": false,
+        "sort_by_layer": true,
+        "type": "vector",
+        "enabled": false
+      },
+      {
+        "link": "https://gis.blm.gov/nmarcgis/rest/services/Recreation/BLM_NM_Recreation_Guide/MapServer",
+        "layers": [ 0, 1 ],
+        "layer_names": {
+          "0": "BLM NM Recreation",
+          "1": "BLM NM Byways and Trails"
+        },
+        "name": "BLM Rec Opportunities NM",
+        "description": "Desc.",
+        "sort_by_state": false,
+        "sort_by_layer": true,
+        "type": "vector",
+        "enabled": false
+      },
+      {
+        "link": "https://gis.blm.gov/nmarcgis/rest/services/Recreation/BLM_NM_RGDN_Recreation/MapServer",
+        "layers": [ 0, 1, 2, 3, 4, 5 ],
+        "layer_names": {
+          "0": "BLM NM RGDN Boat Launch",
+          "1": "BLM NM RGDN Trail Heads",
+          "2": "BLM NM RGDN Overlooks",
+          "3": "BLM NM RGDN Campgrounds",
+          "4": "BLM NM RGDN Trails",
+          "5": "BLM NM RGDN Rec Areas"
+        },
+        "name": "BLM NM RGDN",
+        "description": "Rio Grande Del Norte Rec Opportunities",
+        "sort_by_state": false,
+        "sort_by_layer": true,
+        "type": "vector",
+        "enabled": false
+      }
+    ]
+    },
+    { "name": "Weather & Conditions (Frequent Update)",
+      "description": "Weather that is updated every few minutes",
+      "links": [
+        {
+          // Finished
+          "link": "https://mapservices.weather.noaa.gov/eventdriven/rest/services/WWA/watch_warn_adv/MapServer",
+          "layers": [ 0,1 ],
+          "name": "Watches & Warnings",
+          "description": "Watches, warnings, etc.",
+          "layer_names": {
+            "0": "Severe Warnings",
+            "1": "All Watches & Warnings"
+          },
+          "sort_by_state": false,
+          "sort_by_layer": true,
+          "type": "vector",
+          "enabled": false
+        },
+        {
+          "link": "https://mapservices.weather.noaa.gov/eventdriven/rest/services/water/riv_gauges/MapServer",
+          "layers": [ 0, 1, 2, 3, 4, 7, 14 ],
+          "layer_names": {"0": "Observed River Stages",
+                          "1": "River Stages 24hr forecast",
+                          "2": "River Stages 48hr forecast",
+                          "3": "River Stages 72hr forecast",
+                          "4": "River Stages 96hr forecast",
+                          "7": "River Stages 168hr Forecast",
+                          "14": "River Stages 336hr forecast"},
+          "name": "River Guages",
+          "description": "NOAA NWPS Riv Guage System",
+          "sort_by_state": false,
+          "sort_by_layer": true,
+          "type": "vector",
+          "enabled": false
+        },
+        {
+          "link": "https://mapservices.weather.noaa.gov/vector/rest/services/outlooks/natl_fcst_wx_chart/MapServer",
+          "layers": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+                      13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+                      25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 ],
+          "layer_names": {"1": "Day 1 Highs and Lows",
+                          "2": "Day 1 Fronts",
+                          "3": "Day 1 Rain/Thunderstorms",
+                          "4": "Day 1 Rain",
+                          "5": "Day 1 Mixed Precipitation",
+                          "6": "Day 1 Snow",
+                          "7": "Day 1 Severe Thunderstorms",
+                          "8": "Day 1 Heavy Rain - Flash Flooding",
+                          "9": "Day 1 Critical Fire Weather",
+                          "10": "Day 1 Freezing Rain",
+                          "11": "Day 1 Heavy Snow",
+                          "13": "Day 2 Highs and Lows",
+                          "14": "Day 2 Fronts",
+                          "15": "Day 2 Rain/Thunderstorms",
+                          "16": "Day 2 Rain",
+                          "17": "Day 2 Mixed Precipitation",
+                          "18": "Day 2 Snow",
+                          "19": "Day 2 Severe Thunderstorms",
+                          "20": "Day 2 Heavy Rain - Flash Flooding",
+                          "21": "Day 2 Critical Fire Weather",
+                          "22": "Day 2 Freezing Rain",
+                          "23": "Day 2 Heavy Snow",
+                          "25": "Day 3 Highs and Lows",
+                          "26": "Day 3 Fronts",
+                          "27": "Day 3 Rain/Thunderstorms",
+                          "28": "Day 3 Rain",
+                          "29": "Day 3 Mixed Precipitation",
+                          "30": "Day 3 Snow",
+                          "31": "Day 3 Severe Thunderstorms",
+                          "32": "Day 3 Heavy Rain - Flash Flooding",
+                          "33": "Day 3 Critical Fire Weather",
+                          "34": "Day 3 Freezing Rain",
+                          "35": "Day 3 Heavy Snow"},
+          "name": "NOAA Forecasts",
+          "description": "NOAA National Forecasts",
+          "sort_by_state": false,
+          "sort_by_layer": true,
+          "type": "vector",
+          "enabled": false
+        },
+        {
+          "link": "https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/AirNowAQIForecast/FeatureServer",
+          "layers": [ 0, 1 ],
+          "layer_names": {"0": "Today's AQI Forecast",
+                          "1": "Tomorrow's AQI Forecast"},
+          "name": "Air Quality Index",
+          "description": "AirNowAQIForecast (EPA)",
+          "sort_by_state": false,
+          "sort_by_layer": true,
+          "type": "JSON",
+          "enabled": true
+        }
+      ]
+    },
+    { "name": "Weather & Conditions",
       "description": "Weather, etc.",
       "links": [
         {
@@ -20,7 +297,7 @@
           "sort_by_state": false,
           "sort_by_layer": true,
           "type": "vector",
-          "enabled": true
+          "enabled": false
         },
         {
           // Finished
@@ -35,7 +312,7 @@
           "sort_by_state": false,
           "sort_by_layer": true,
           "type": "vector",
-          "enabled": true
+          "enabled": false
         },
         {
           //Raster, unsure on completion
@@ -46,9 +323,8 @@
           "description": "Snow, etc.",
           "sort_by_state": false,
           "sort_by_layer": true,
-          "raster": true,
           "type": "raster",
-          "enabled": true
+          "enabled": false
         },
         {
           "link": "https://mapservice.nohrsc.noaa.gov/arcgis/rest/services/national_water_model/NWM_Stream_Analysis/MapServer",
@@ -72,64 +348,29 @@
           "description": "NOAA NWM Stream Analysis",
           "sort_by_state": false,
           "sort_by_layer": true,
-          "raster": false,
+          "type": "vector",
+          "enabled": false
+        },
+        {
+          "link": "https://mapservices.weather.noaa.gov/eventdriven/rest/services/water/riv_gauges/MapServer",
+          "layers": [ 0, 1, 2, 3, 4, 7, 14 ],
+          "layer_names": {"0": "Observed River Stages",
+                          "1": "River Stages 24hr forecast",
+                          "2": "River Stages 48hr forecast",
+                          "3": "River Stages 72hr forecast",
+                          "4": "River Stages 96hr forecast",
+                          "7": "River Stages 168hr Forecast",
+                          "14": "River Stages 336hr forecast"},
+          "name": "River Guages",
+          "description": "NOAA NWPS Riv Guage System",
+          "sort_by_state": false,
+          "sort_by_layer": true,
           "type": "vector",
           "enabled": false
         }
       ]
-    },
-    {
-      "name": "Recreation",
-      "description": "POIs",
-      "links": [
-        {
-          "link": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer",
-          "layers": [ 0 ],
-          "layer_names": {
-            "0": "USFS Recreation Opportunities"
-          },
-          "name": "USFS Recreation Opportunities",
-          "description": "Desc.",
-          "sort_by_state": true,
-          "sort_by_layer": false,
-          "type": "vector",
-          "enabled": true
-        }
-       
-      ]
-    },
-    {
-    "name": "Land Use & Boundaries",
-      "description": "Borders, Parcels, and Areas",
-      "links": [
-        {
-          "link": "https://services2.arcgis.com/C8EMgrsFcRFL6LrL/ArcGIS/rest/services/All_USCounties/FeatureServer",
-          "layers": [ 0 ],
-          "layer_names": {
-            "0" : "US Counties"
-          },
-          "name": "US Counties",
-          "description": "County lines for all of the US",
-          "sort_by_state": true,
-          "sort_by_layer": false,
-          "enabled": true,
-          "type": "geoJSON"
-        },
-       
-        {
-          "link": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_BasicOwnership_02/MapServer",
-          "layers": [ 0 ],
-          "layer_names": {
-            "0" : "National Forest Boundaries"
-          },
-          "name": "National Forest Boundaries",
-          "description": "USFS owned lands",
-          "sort_by_state": true,
-          "sort_by_layer": false,
-          "enabled": true,
-          "type": "kmz"
-        }
-      ]
     }
+
+
   ]
 }
