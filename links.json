@@ -36,7 +36,7 @@
         "description": "The National Map",
         "sort_by_state": true,
         "sort_by_layer": true,
-        "enabled": false,
+        "enabled": true,
         // Link says it supports KMZ, but no objects are returned
         "type": "geoJSON" }]
     },
@@ -67,7 +67,7 @@
         "description": "USFS owned lands",
         "sort_by_state": true,
         "sort_by_layer": false,
-        "enabled": false,
+        "enabled": true,
         "type": "kmz"
       },
       {
@@ -81,7 +81,7 @@
         "description": "USFS owned lands",
         "sort_by_state": false,
         "sort_by_layer": true,
-        "enabled": false,
+        "enabled": true,
         "type": "kmz"
       }
       
@@ -101,7 +101,7 @@
         "sort_by_state": true,
         "sort_by_layer": false,
         "type": "vector",
-        "enabled": false
+        "enabled": true
       },
       {
         // Untested
@@ -133,7 +133,7 @@
         "sort_by_state": false,
         "sort_by_layer": true,
         "type": "vector",
-        "enabled": false
+        "enabled": true
       },
       {
         // Untested
@@ -148,7 +148,7 @@
         "sort_by_state": false,
         "sort_by_layer": true,
         "type": "vector",
-        "enabled": false
+        "enabled": true
       },
       {
         "link": "https://gis.blm.gov/nmarcgis/rest/services/Recreation/BLM_NM_Recreation_Guide/MapServer",
@@ -162,7 +162,7 @@
         "sort_by_state": false,
         "sort_by_layer": true,
         "type": "vector",
-        "enabled": false
+        "enabled": true
       },
       {
         "link": "https://gis.blm.gov/nmarcgis/rest/services/Recreation/BLM_NM_RGDN_Recreation/MapServer",
@@ -180,7 +180,7 @@
         "sort_by_state": false,
         "sort_by_layer": true,
         "type": "vector",
-        "enabled": false
+        "enabled": true
       }
     ]
     },
@@ -200,7 +200,7 @@
           "sort_by_state": false,
           "sort_by_layer": true,
           "type": "vector",
-          "enabled": false
+          "enabled": true
         },
         {
           "link": "https://mapservices.weather.noaa.gov/eventdriven/rest/services/water/riv_gauges/MapServer",
@@ -221,9 +221,9 @@
         },
         {
           "link": "https://mapservices.weather.noaa.gov/vector/rest/services/outlooks/natl_fcst_wx_chart/MapServer",
-          "layers": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-                      13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
-                      25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 ],
+          "layers": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+                      14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+                      26, 27, 28, 29, 30, 31, 32, 33, 34, 35 ],
           "layer_names": {"1": "Day 1 Highs and Lows",
                           "2": "Day 1 Fronts",
                           "3": "Day 1 Rain/Thunderstorms",
@@ -262,7 +262,7 @@
           "sort_by_state": false,
           "sort_by_layer": true,
           "type": "vector",
-          "enabled": false
+          "enabled": true
         },
         {
           "link": "https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/AirNowAQIForecast/FeatureServer",
@@ -297,7 +297,7 @@
           "sort_by_state": false,
           "sort_by_layer": true,
           "type": "vector",
-          "enabled": false
+          "enabled": true
         },
         {
           // Finished
@@ -366,7 +366,7 @@
           "sort_by_state": false,
           "sort_by_layer": true,
           "type": "vector",
-          "enabled": false
+          "enabled": true
         }
       ]
     }

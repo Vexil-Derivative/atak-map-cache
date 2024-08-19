@@ -96,7 +96,7 @@ def get_links_by_id(link, layer, maxCount):
             if link_obj["type"] == "geoJSON":
                 #links.append(link + '/' + str(layer) + f'/query?&where={id_field}%20IN%20{formatted_chunk}&outFields=*&returnGeometry=true&outSpatialReference=4326&f=pgeojson')
                 links.append(link + '/' + str(layer) + f'/query?&where={id_field}%20IN%20{formatted_chunk}&outFields=*&returnGeometry=true&outSpatialReference=4326&f=geojson')
-            if link_obj["type"] == "JSON":
+            elif link_obj["type"] == "JSON":
                 links.append(link + '/' + str(layer) + f'/query?&where={id_field}%20IN%20{formatted_chunk}&outFields=*&returnGeometry=true&outSpatialReference=4326&f=pjson')
 
             else:
