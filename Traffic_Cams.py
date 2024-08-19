@@ -26,6 +26,88 @@ def traffic_cams():
     dp.write_manifest(f'cache/cot/{dp.man_name}/MANIFEST/mainfest.xml')
     dp.zip()
 
+def truck_parking(name, url):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    export = requests.get(url).content
+    tld = KML.kml(KML.Document(
+        KML.name(name),
+        KML.description("Test"),
+        KML.Style(
+            KML.IconStyle(
+                KML.Icon(KML.href('ic_truckParking.png')),
+                KML.hotSpot(x='0.5', y='0.5', xunits='fraction', yunits='fraction')
+            ),
+            KML.LabelStyle(
+                KML.scale(0)
+            ),
+            id="parking"
+        )
+    ))
+
+    with open("parking_template.html") as template_file:
+        template = template_file.read()
+    for stop in json.loads(export):
+        tld.Document.append(KML.Placemark(
+            KML.name(stop['FacilityName']),
+            KML.description(f"""
+<table>
+  <tr style="border_bottom: 1px solid #ddd;">
+    <td>Facility Name</td>
+    <td>{stop['FacilityName']}</td>
+  </tr>
+  <tr style="border_bottom: 1px solid #ddd;">
+    <td>Roadway</td>
+    <td>{stop['Roadway']}</td>
+  </tr>
+  <tr style="border_bottom: 1px solid #ddd;">
+    <td>Total Parking Spaces</td>
+    <td>{stop['TotalParkingSpaces']}</td>
+  </tr>
+  <tr style="border_bottom: 1px solid #ddd;">
+    <td>Available Parking Spaces</td>
+    <td>{stop['AvailableParkingSpaces']}</td>
+  </tr>
+  <tr style="border_bottom: 1px solid #ddd;">
+    <td>Trend</td>
+    <td>{stop['Trend']}</td>
+  </tr>
+  <tr style="border_bottom: 1px solid #ddd;">
+    <td>Open</td>
+    <td>{stop['Open']}</td>
+  </tr>
+  <tr style="border_bottom: 1px solid #ddd;">
+    <td>Amenities</td>
+    <td>{stop['Amenities']}</td>
+  </tr>
+</table>
+
+Last updated {timestamp}
+"""),
+            KML.styleUrl("#parking"),
+            KML.Point(
+                KML.coordinates(str(stop['Longitude']) + ',' + str(stop['Latitude'])))
+            )
+        )
+
+    print(export)
+    objectify.deannotate(tld, xsi_nil=True)
+    etree.cleanup_namespaces(tld)
+
+    parser.Schema("ogckml22.xsd").assertValid(tld)
+    assert(parser.Schema("kml22gx.xsd").validate(tld))
+    final_kml_text = etree.tostring(tld, pretty_print=True )
+    output = Path('cache/temp/parking/doc.kml')
+    output.write_bytes(final_kml_text)
+    with open('cache/temp/parking/doc.kml', 'w', encoding='utf-8') as outputfile:
+        outputfile.write(unescape(final_kml_text.decode()))
+    with zipfile.ZipFile('cache/kmz/WI_511_Parking.kmz',
+                         'w', zipfile.ZIP_DEFLATED) as zip:
+        os.chdir('cache/temp/parking/')
+        zip.write('doc.kml')
+        os.chdir('../../icons')
+        zip.write('ic_TruckParking.png')
+
 def message_signs(name, url):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -44,6 +126,7 @@ def message_signs(name, url):
             id="ms"
         )
     ))
+    
 
     tlf = KML.Folder(KML.name("Message Signs"), KML.description("Description")) 
     for sign in json.loads(export):
@@ -88,5 +171,6 @@ def message_signs(name, url):
         zip.write('doc.kml')
 
 if __name__ == '__main__':
-    traffic_cams()
-    message_signs("WI_511_Messagesigns", "https://511wi.gov/api/v2/get/messagesigns?key=043964c85d7640f29133e6a48c0fd449")
+    #traffic_cams()
+    #message_signs("WI_511_Messagesigns", "https://511wi.gov/api/v2/get/messagesigns?key=043964c85d7640f29133e6a48c0fd449")
+    truck_parking("WI_511_TruckParking", "https://511wi.gov/api/v2/get/truckparking?key=043964c85d7640f29133e6a48c0fd449")
